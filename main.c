@@ -12,26 +12,21 @@ int main()
    // printf("%s", strdup(chaine));
 
 */
-{
-
-    int array [] = { 54, 85, 20, 63, 21 };
-    size_t size = sizeof( int ) * 5;
-    int length;
-
-    /* Display the initial values */
-    for( length=0; length<5; length++) {
-        printf( "%d ", array[ length ] );
+ {
+    int i_array[10]   = {7, 7, 7, 7, 7, 7, 7, 7, 7, 7};
+    short s_array[12] = {5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
+    size_t pos = 0;
+ 
+    bzero(i_array, (6 * sizeof(int)));
+    bzero(s_array, (10 * sizeof(short)));
+ 
+    for(; pos < 10; pos++) {
+        printf("%lu: %d\n", (pos + 1), i_array[pos]);
     }
-    printf( "\n" );
-
-    /* Reset the memory bloc */
-    ft_memset( array, 0, size );
-
-    /* Display the new values */
-    for( length=0; length<5; length++) {
-        printf( "%d ", array[ length ] );
+ 
+    for(pos = 0; pos < 12; pos++) {
+        printf("%lu: %d\n", (pos + 1), s_array[pos]);
     }
-    printf( "\n" );
-    
+ 
     return 0;
 }

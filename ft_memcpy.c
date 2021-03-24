@@ -1,28 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/24 13:18:39 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/03/24 14:59:13 by hkrifa           ###   ########.fr       */
+/*   Created: 2021/03/24 15:27:13 by hkrifa            #+#    #+#             */
+/*   Updated: 2021/03/24 15:27:47 by hkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void    *ft_memset(void *str, int value, size_t count)
-{
-    //unsigned char *c;
-    size_t i; 
-    //c = str;
-    i = 0;
-    
-    while (i < count)
-    {
-        ((unsigned char*)str)[i] = value;
-        i++;
-    }
-    return(str);
-}
