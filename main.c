@@ -2,31 +2,33 @@
 #include <string.h>
 #include <ctype.h>
 #include "libft.h"
+#define ELEMENT_COUNT 10
 
 int main()
+
 /*{
    char chaine[15] = "Bonjour";
-    char chaine1[15] = "cava";
+    char chaine1[15] = "ca va";
 
-    //printf("%lu\n", ft_strlcat(chaine, chaine1, 10));
-   // printf("%s", strdup(chaine));
+    printf("%s\n", ft_memcpy(chaine, chaine1, 1));
+   printf("%s", memcpy(chaine));
+}
 
-*/
- {
-    int i_array[10]   = {7, 7, 7, 7, 7, 7, 7, 7, 7, 7};
-    short s_array[12] = {5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
-    size_t pos = 0;
- 
-    bzero(i_array, (6 * sizeof(int)));
-    bzero(s_array, (10 * sizeof(short)));
- 
-    for(; pos < 10; pos++) {
-        printf("%lu: %d\n", (pos + 1), i_array[pos]);
-    }
- 
-    for(pos = 0; pos < 12; pos++) {
-        printf("%lu: %d\n", (pos + 1), s_array[pos]);
-    }
- 
+{
+
+    char str[14] = "GeeksForGeeks";
+    char nstr[27] = " is for programming geeks.";
+    printf("%s\n",ft_memccpy(str, nstr, '.', 14));
+    printf("%s",memccpy(str, nstr, '.', 14));
     return 0;
+}*/
+{
+    char buffer[80];
+
+    strcpy( buffer, "World");
+    ft_memmove( buffer + 1, buffer, 79 );
+    printf ("%s\n", buffer);
+    
+    return EXIT_SUCCESS;
+
 }
