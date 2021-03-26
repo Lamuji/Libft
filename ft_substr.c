@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 14:23:08 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/03/26 09:01:51 by hkrifa           ###   ########.fr       */
+/*   Created: 2021/03/26 11:15:08 by hkrifa            #+#    #+#             */
+/*   Updated: 2021/03/26 11:51:29 by hkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_memmove(void *dest, const void *src, size_t n)
+char *ft_substr(char const *s, unsigned int start, size_t len)
 {
     size_t i;
-    unsigned char *source;
-    unsigned char *destination;
+    char *src;
+    char *dest;
     
     i = 0;
-    source = (unsigned char*)src;
-    destination = (unsigned char*)dest;
-    
-    if(destination > source)
+    src = (char *)s;
+    dest = malloc(sizeof(char) * len + 1);
+    if(dest == NULL)
+        return (0);
+    while(src[i + start] != '\0' && i < len)
     {
-        while(n-- > 0)
-            destination[n] = source[n];
+        dest[i] = src[i + start];
+        i++;
     }
-        else
-        {
-            while(i < n)
-                destination[i] = source[i];
-                i++;
-        }
-    return (dest);       
+    dest[i] = '\0';
+    return(dest);
 }

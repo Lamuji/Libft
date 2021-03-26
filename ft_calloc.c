@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/25 14:23:08 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/03/26 09:01:51 by hkrifa           ###   ########.fr       */
+/*   Created: 2021/03/26 10:13:41 by hkrifa            #+#    #+#             */
+/*   Updated: 2021/03/26 11:00:40 by hkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_memmove(void *dest, const void *src, size_t n)
+void    *ft_calloc(size_t nmemb, size_t size)
 {
+    char *tab;
     size_t i;
-    unsigned char *source;
-    unsigned char *destination;
+    size_t max;
     
     i = 0;
-    source = (unsigned char*)src;
-    destination = (unsigned char*)dest;
-    
-    if(destination > source)
-    {
-        while(n-- > 0)
-            destination[n] = source[n];
-    }
-        else
-        {
-            while(i < n)
-                destination[i] = source[i];
-                i++;
-        }
-    return (dest);       
+    max = nmemb * size;
+    if(nmemb == 0 || size == 0)
+        return(NULL);
+    tab = malloc(max);
+    while(max--)
+        tab[i++] = 0;
+    return (tab);
 }
