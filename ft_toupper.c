@@ -6,16 +6,15 @@
 /*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 09:15:43 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/03/23 09:27:11 by hkrifa           ###   ########.fr       */
+/*   Updated: 2021/03/28 13:11:09 by haroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_toupper(int c)
+int	ft_toupper(int c)
 {
-    if(c >= 97 && c <= 122)
-    c -= 32; 
-    return (c);
+	if (c >= 97 && c <= 122)
+		c = c - 32;
+	return (c);
 }
-
