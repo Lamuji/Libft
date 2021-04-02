@@ -3,63 +3,75 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: haroun <haroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 14:58:17 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/04/02 11:57:43 by hkrifa           ###   ########.fr       */
+/*   Updated: 2021/04/02 19:27:57 by haroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-size_t  nbword(const char *s, char c)
+
+char	*ft_strncpy(char *dest, char *src, size_t n)
 {
-  size_t i;
-  size_t j;
-  i = 0;
-  j = 0;
-  while (s[i] != '\0')
-  {
-    if(s[i] == c)
-      j++;
-    i++;
-  }
-  return j + 1;
+	size_t	i;
+
+	i = 0;
+	while (src[i] != '\0' && i < n)
+	{
+		dest[i] = src[i];
+		++i;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }
-char **ft_split(const char *s, char c)
+
+size_t      nbr_word(const char *s, char sep)
 {
-  size_t i;
-  size_t j_mot;
-  size_t k_tab;
-  char **new;
-  k_tab = 0;
-  new = ft_calloc(sizeof(new), nbword(s, c)+1);
-  i = 0;
-  while(s[i])
-  {
-   j_mot = 0;
-    if(s[i] != c)
-      {
-        while (s[i + j_mot] != c && s[i + j_mot] != '\0')
-            j_mot++;
-        new[k_tab] = ft_calloc(sizeof(char *), (j_mot + 1));
-        ft_strlcpy(new[k_tab], (char*)&s[i], j_mot);
-        k_tab++;
-        i = i + j_mot - 1;
-      }
-    i++;
-  }
-  new[k_tab] = 0;
-  return new;
+    size_t i;
+    size_t len;
+
+    i = 0;
+    len = 0;
+    while(s[i] != '\0')
+        {
+           if(s[i] == sep)
+               len++;
+           i++;
+        }
+    return (len + 1);
 }
-int main()
+
+char    **ft_split(const char *s, char sep)
 {
-    char *n = "toto,pythontutor,42,ongalere, comment vas la mif, kepassa";
-    char t = ',';
-    int i = 0;
-    while (ft_split(n , t)[i] != 0)
+    size_t i;
+    size_t len_mot;
+    size_t m_dest;
+    char **dest;
+    
+    m_dest = 0;
+    dest = malloc(sizeof(dest) * nbr_word(s, sep) + 1);
+        if (!dest)
+            return (NULL);
+    i = 0;
+    while(s[i])
     {
-        printf("%s\n",ft_split(n , t)[i]);
+        len_mot = 0;
+        if(s[i] != sep)
+        {
+            while(s[i + len_mot] != sep && s[i + len_mot] != '\0')
+                len_mot++;
+            dest[m_dest] = malloc(sizeof(char *) * (len_mot + 1));
+            ft_strncpy(dest[m_dest], (char *)&s[i], len_mot);
+            m_dest++;
+            i = i + len_mot - 1;
+        }
         i++;
     }
-    return 0;
+    dest[m_dest] = 0;
+    return (dest);
 }

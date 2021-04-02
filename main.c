@@ -10,6 +10,18 @@
 
 
 int main()
+
+{
+    char *n = "toto,pythontutor,42,ongalere, comment vas la mif, kepassa";
+    char t = ',';
+    int i = 0;
+    while (ft_split(n , t)[i] != 0)
+    {
+        printf("%s\n",ft_split(n , t)[i]);
+        i++;
+    }
+    return 0;
+}
 /*{
     int fd;
     fd = open("42", O_WRONLY | O_RDONLY | O_CREAT);
@@ -17,7 +29,7 @@ int main()
     return 0;
 
 
-*/
+
 {
    char chaine[100] = "ABBBBCbonBjourAB";
     //char chaine1[15] = "ca va";
@@ -25,7 +37,7 @@ int main()
     printf("%s\n", ft_strtrim(chaine, "CCCCCAAABBB"));
    //printf("%s", memcpy(chaine));
 }
-/*int main(int argc, char * argv[])
+int main(int argc, char * argv[])
 {
 
     char str[100] = "fefefefefefefefefeffefefefeGeeksForGeeksfefefefefefefefefeffefefefe";
@@ -33,8 +45,8 @@ int main()
     printf("%s",ft_strtrim(str, "fefefefefefefefefeffefefefe"));
     //printf("%d", strjoin(str, nstr, '.', 14));
     return 0;
-}*/
-/*{
+}
+{
 
     // On cherche à lire une ligne de texte à partir du clavier.
     char buffer[ 255 ];
