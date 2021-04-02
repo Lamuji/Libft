@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/24 12:11:11 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/03/31 12:08:49 by hkrifa           ###   ########.fr       */
+/*   Created: 2021/03/31 10:04:30 by hkrifa            #+#    #+#             */
+/*   Updated: 2021/04/01 08:37:05 by hkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	len;
-	size_t	i;
+	unsigned int	i;
+	char			*str;
 
+	str = ft_strdup(s);
 	i = 0;
-	if (s2[i] == '\0')
-		return ((char *)s1);
-	len = ft_strlen(s2);
-	while (s1[i] != '\0' && n-- >= len)
+	while (str[i] != '\0')
 	{
-		if (s1[i] == s2[i] && ft_strncmp(s1, s2, len) == 0)
-			return ((char *)s1);
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	return (NULL);
+	str[i] = '\0';
+	return (str);
 }

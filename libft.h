@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/29 09:04:18 by hkrifa            #+#    #+#             */
+/*   Updated: 2021/03/31 10:03:43 by hkrifa           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_ABS_H
 # define FT_ABS_H
 
 #include <stdlib.h>
+#include <unistd.h>
 int     ft_toupper(int c);
 size_t	ft_strlen(const char *str);
 int     ft_isprint(int c);
@@ -28,5 +41,12 @@ void    *ft_calloc(size_t nmemb, size_t size);
 char    *ft_substr(char const *s, unsigned int start, size_t len);
 char    *ft_strjoin(char const *s1, char const *s2);
 char	*ft_strnstr(const char *s1, const char *s2, size_t n);
+char    *ft_strtrim(char const *s1, char const *set);
+char    **ft_split(char const *s, char c);
+void    ft_putchar_fd(char c, int fd);
+void    ft_putstr_fd(char *s, int fd);
+void    ft_putnbr_fd(int n, int fd);
+char    *ft_itoa(int n);
+char    *ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 #endif

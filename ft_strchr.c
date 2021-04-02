@@ -6,7 +6,7 @@
 /*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 10:02:14 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/03/27 18:39:18 by haroun           ###   ########.fr       */
+/*   Updated: 2021/04/01 08:38:10 by hkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *str, int c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != '\0')

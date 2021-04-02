@@ -1,26 +1,39 @@
 #include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <string.h>
 #include <ctype.h>
 #include "libft.h"
 #include <assert.h>
 #define INT_NUMBER 10
 
-/*{
-   char chaine[15] = "Bonjour";
-    char chaine1[15] = "ca va";
 
-    printf("%s\n", ft_substr(chaine, 'o', 1));
+int main()
+/*{
+    int fd;
+    fd = open("42", O_WRONLY | O_RDONLY | O_CREAT);
+    ft_putchar_fd('c', fd);
+    return 0;
+
+
+*/
+{
+   char chaine[100] = "ABBBBCbonBjourAB";
+    //char chaine1[15] = "ca va";
+
+    printf("%s\n", ft_strtrim(chaine, "CCCCCAAABBB"));
    //printf("%s", memcpy(chaine));
-}*/
-int main(int argc, char * argv[])
+}
+/*int main(int argc, char * argv[])
 {
 
-    char str[14] = "GeeksForGeeks";
-    char nstr[27] = " is for programming geeks.";
-    printf("%s\n",ft_strjoin(str, nstr));
+    char str[100] = "fefefefefefefefefeffefefefeGeeksForGeeksfefefefefefefefefeffefefefe";
+    //char nstr[27] = " is for programming geeks.";
+    printf("%s",ft_strtrim(str, "fefefefefefefefefeffefefefe"));
     //printf("%d", strjoin(str, nstr, '.', 14));
     return 0;
-}
+}*/
 /*{
 
     // On cherche à lire une ligne de texte à partir du clavier.

@@ -6,7 +6,7 @@
 /*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 14:41:39 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/03/28 13:38:14 by haroun           ###   ########.fr       */
+/*   Updated: 2021/03/31 12:04:35 by hkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t destsize)
 {
-	size_t i;
-	size_t src_len;
-	size_t src_dest;
+	size_t	i;
+	size_t	src_len;
+	size_t	src_dest;
 
 	src_dest = ft_strlen(dest);
 	src_len = ft_strlen((char *)src);

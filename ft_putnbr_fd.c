@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/24 12:11:11 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/03/31 12:08:49 by hkrifa           ###   ########.fr       */
+/*   Created: 2021/03/30 10:51:07 by hkrifa            #+#    #+#             */
+/*   Updated: 2021/03/31 11:58:38 by hkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	len;
 	size_t	i;
 
-	i = 0;
-	if (s2[i] == '\0')
-		return ((char *)s1);
-	len = ft_strlen(s2);
-	while (s1[i] != '\0' && n-- >= len)
+	if (n < 0)
 	{
-		if (s1[i] == s2[i] && ft_strncmp(s1, s2, len) == 0)
-			return ((char *)s1);
-		i++;
+		i = n * -1;
+		ft_putchar_fd('-', fd);
 	}
-	return (NULL);
+	else
+		i = n;
+	if (i > 9)
+	{
+		ft_putnbr_fd(i / 10, fd);
+		ft_putchar_fd(i % 10 + 48, fd);
+	}
+	else
+		ft_putchar_fd(i + 48, fd);
 }
