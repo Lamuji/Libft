@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: haroun <haroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 09:04:18 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/03/31 10:03:43 by hkrifa           ###   ########.fr       */
+/*   Updated: 2021/04/04 15:00:22 by haroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+typedef struct  s_list
+{
+    void *content;
+    struct s_list *next;
+}               t_list;
 int     ft_toupper(int c);
 size_t	ft_strlen(const char *str);
 int     ft_isprint(int c);
@@ -48,5 +53,6 @@ void    ft_putstr_fd(char *s, int fd);
 void    ft_putnbr_fd(int n, int fd);
 char    *ft_itoa(int n);
 char    *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+t_list  *ft_lstnew(void *content);
 
 #endif

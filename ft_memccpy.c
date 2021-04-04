@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
+/*   By: haroun <haroun@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 09:12:54 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/03/31 11:49:29 by hkrifa           ###   ########.fr       */
+/*   Updated: 2021/04/04 17:09:23 by haroun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	while (i < n)
 	{
 		d[i] = s[i];
-		if (source[i] == (unsigned char)c)
+		if (s[i] == (unsigned char)c)
 			return (dest + i + 1);
 		i++;
 	}
