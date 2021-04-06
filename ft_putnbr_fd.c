@@ -6,7 +6,7 @@
 /*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 10:51:07 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/04/05 09:47:56 by hkrifa           ###   ########.fr       */
+/*   Updated: 2021/04/06 12:36:03 by hkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	nbr;
+	unsigned int	nbr;
 
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		nbr = n * -1;
+		nbr = (n * -1);
 	}
 	else
 		nbr = n;

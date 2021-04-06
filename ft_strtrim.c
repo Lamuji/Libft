@@ -6,7 +6,7 @@
 /*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 09:04:11 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/04/01 08:39:25 by hkrifa           ###   ########.fr       */
+/*   Updated: 2021/04/06 13:10:52 by hkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	end;
 	char	*dest;
 
+	if (!s1)
+		return (NULL);
 	start = 0;
 	while (s1[start] && find_c(s1[start], set))
 		start++;

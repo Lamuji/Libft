@@ -36,11 +36,16 @@ SRCS = ft_memset.c \
 	   ft_putstr_fd.c \
 	   ft_putendl_fd.c \
 	   ft_putnbr_fd.c \
-	
+
+SRC_bonus = ft_lstnew.c \
 
 OBJS = $(SRCS:.c=.o)
+OBJS_B = $(SRC_bonus:.c=.o)
 
 RM = rm -f
+
+bonus : $(OBJS_B)
+		ar -rs $(NAME) $^ 
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 10:24:08 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/03/31 11:59:53 by hkrifa           ###   ########.fr       */
+/*   Updated: 2021/04/06 14:37:36 by hkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	int	len;
 
-	len = ft_strlen(s);
-	write(fd, s, len);
+	if (s)
+	{
+		len = ft_strlen(s);
+		write(fd, s, len);
+	}
 }

@@ -3,25 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haroun <haroun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:56:50 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/04/04 17:12:41 by haroun           ###   ########.fr       */
+/*   Updated: 2021/04/06 14:48:30 by hkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_putnbr(size_t nb)
+static char	ft_putnbr(int nb)
 {
-	size_t	nbr;
+	int	nbr;
+	int	i;
 
+	i = 0;
 	nbr = nb;
-	if (nbr < 0)
-	{
-		return ('-');
-		nbr = nbr * -1;
-	}
 	if (nbr > 9)
 	{
 		ft_putnbr(nbr / 10);
@@ -32,11 +29,13 @@ char	ft_putnbr(size_t nb)
 	return (0);
 }
 
-int	coutInt(int c)
+static int	len_nbr(int c)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
+	if (c == 0)
+		return (i + 1);
 	if (c < 0)
 	{
 		c = c * -1;
@@ -50,31 +49,41 @@ int	coutInt(int c)
 	return (i);
 }
 
+static void	filnewchar(int nbr, char *new, int i)
+{
+	while (nbr > 0)
+	{
+		new[i] = ft_putnbr(nbr);
+		nbr = nbr / 10;
+		i--;
+	}
+}
+
 char	*ft_itoa(int n)
 {
-	size_t		i;
-	size_t		p;
-	char		*new;
+	int		i;
+	int		p;
+	int		nbr;
+	char	*new;
 
-	i = coutInt(n);
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	nbr = n;
+	i = len_nbr(nbr);
 	p = 0;
-	new = malloc(sizeof(*new) * i + 1);
+	new = malloc(sizeof(char) * i + 1);
 	if (!new)
 		return (NULL);
-	if (n < 0)
+	if (nbr < 0)
 	{
+		new[0] = '-';
+		nbr = nbr * -1;
 		p++;
-		n = n * -1;
 	}
 	new[i] = '\0';
 	i--;
-	while (n > 0)
-	{
-		new[i] = ft_putnbr(n);
-		n = n / 10;
-		i--;
-	}
-	if (p == 1)
-		new[i] = '-';
+	if (nbr == 0)
+		new[i] = '0';
+	filnewchar(nbr, new, i);
 	return (new);
 }
