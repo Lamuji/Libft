@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: haroun <haroun@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 14:58:17 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/04/02 19:27:57 by haroun           ###   ########.fr       */
+/*   Updated: 2021/04/06 12:38:17 by hkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, char *src, size_t n)
+static char	*ft_strncpy(char *dest, char *src, size_t n)
 {
 	size_t	i;
 
@@ -30,7 +30,7 @@ char	*ft_strncpy(char *dest, char *src, size_t n)
 	return (dest);
 }
 
-size_t      nbr_word(const char *s, char sep)
+static size_t      nbr_word(const char *s, char sep)
 {
     size_t i;
     size_t len;
@@ -46,32 +46,36 @@ size_t      nbr_word(const char *s, char sep)
     return (len + 1);
 }
 
-char    **ft_split(const char *s, char sep)
-{
-    size_t i;
-    size_t len_mot;
-    size_t m_dest;
-    char **dest;
-    
-    m_dest = 0;
-    dest = malloc(sizeof(dest) * nbr_word(s, sep) + 1);
-        if (!dest)
-            return (NULL);
-    i = 0;
-    while(s[i])
-    {
-        len_mot = 0;
-        if(s[i] != sep)
-        {
-            while(s[i + len_mot] != sep && s[i + len_mot] != '\0')
-                len_mot++;
-            dest[m_dest] = malloc(sizeof(char *) * (len_mot + 1));
-            ft_strncpy(dest[m_dest], (char *)&s[i], len_mot);
-            m_dest++;
-            i = i + len_mot - 1;
-        }
-        i++;
-    }
-    dest[m_dest] = 0;
-    return (dest);
-}
+char	**ft_split(const char *s, char sep)
+ {
+ 	size_t i;
+ 	size_t len_mot;
+ 	size_t m_dest;
+ 	char **dest;
+
+ 	if (!s)
+ 		return (NULL);
+ 	m_dest = 0;
+ 	dest = ft_calloc(sizeof(char **), nbr_word(s, sep) + 1);
+ 	if (!dest)
+ 		return (NULL);
+ 	i = 0;
+ 	while(s[i])
+ 	{
+ 		len_mot = 0;
+ 		if(s[i] != sep)
+         {
+             while(s[i + len_mot] != sep && s[i + len_mot] != '\0')
+                 len_mot++;
+             dest[m_dest] = ft_calloc(sizeof(char), (len_mot + 1));
+ 			if (!dest)
+ 				return (NULL);
+             ft_strncpy(dest[m_dest], (char *)&s[i], len_mot);
+             m_dest++;
+             i = i + len_mot - 1;
+         }
+         i++;
+     }
+     dest[m_dest] = 0;
+     return (dest);
+ }
