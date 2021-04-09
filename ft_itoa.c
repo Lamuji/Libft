@@ -6,7 +6,7 @@
 /*   By: hkrifa <hkrifa@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 13:56:50 by hkrifa            #+#    #+#             */
-/*   Updated: 2021/04/06 14:48:30 by hkrifa           ###   ########.fr       */
+/*   Updated: 2021/04/08 15:59:02 by hkrifa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 static char	ft_putnbr(int nb)
 {
 	int	nbr;
-	int	i;
 
-	i = 0;
 	nbr = nb;
 	if (nbr > 9)
 	{
@@ -62,7 +60,6 @@ static void	filnewchar(int nbr, char *new, int i)
 char	*ft_itoa(int n)
 {
 	int		i;
-	int		p;
 	int		nbr;
 	char	*new;
 
@@ -70,7 +67,6 @@ char	*ft_itoa(int n)
 		return (ft_strdup("-2147483648"));
 	nbr = n;
 	i = len_nbr(nbr);
-	p = 0;
 	new = malloc(sizeof(char) * i + 1);
 	if (!new)
 		return (NULL);
@@ -78,7 +74,6 @@ char	*ft_itoa(int n)
 	{
 		new[0] = '-';
 		nbr = nbr * -1;
-		p++;
 	}
 	new[i] = '\0';
 	i--;

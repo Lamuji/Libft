@@ -1,6 +1,6 @@
 NAME = libft.a
 
-CFLAGS += -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ft_memset.c \
 	   ft_bzero.c \
@@ -38,22 +38,31 @@ SRCS = ft_memset.c \
 	   ft_putnbr_fd.c \
 
 SRC_bonus = ft_lstnew.c \
+			ft_lstadd_front.c \
+			ft_lstsize.c \
+			ft_lstlast.c \
+			ft_lstadd_back.c \
+			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c \
+			ft_lstmap.c \
 
 OBJS = $(SRCS:.c=.o)
+
 OBJS_B = $(SRC_bonus:.c=.o)
 
 RM = rm -f
 
-bonus : $(OBJS_B)
-		ar -rs $(NAME) $^ 
-
 all: $(NAME)
+
+bonus : $(OBJS_B)
+		ar -rs $(NAME) $^
 
 $(NAME): $(OBJS)
 	$(AR) -rcs $(NAME) $?
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(OBJS_B)
 
 fclean: clean
 	$(RM) $(NAME)
